@@ -1,0 +1,84 @@
+{
+    "NEW_YORK": [
+        {
+            "category_title": "Cafe",
+            "category_price": null,
+            "category_image": "http://image.jpg",
+            "type_of": "cafe",
+            "items": [
+                {
+                    "item_title": "Dinner",
+                    "item_price": 10
+                },
+                {
+                    "item_title": "Kombucha",
+                    "item_price": 3
+                },
+            ]
+        },
+        {
+            "category_title": "Accomodation",
+            "category_price": null,
+            "category_image": "http://image.jpg",
+            "type_of": "accomodation",
+            "items": [
+                {
+                    "item_title": "member",
+                    "price": 10
+                },
+                {
+                    "item_title": "non-member",
+                    "price": 30
+                },
+            ]
+        },
+    ],
+    "BOSTON": [
+        {
+            "category_title": "Cafe",
+            "category_price": null,
+            "category_image": "http://image.jpg",
+            "type_of": "cafe",
+            "items": [
+                {
+                    "item_title": "Dinner",
+                    "price": 10
+                },
+            ]
+        },
+    ],
+}
+
+
+
+
+city collection
+
+{
+    _id: 12345,
+    name: "New York"
+}
+
+category collection
+
+{
+    _id: 0987,
+    city_id: 12345
+    category_title: "Cafe",
+    category_price: 10,
+    type_of: "cafe",
+    items: [
+        {
+            item_name: "Dinner",
+            item_price: 10
+        },
+        {
+            item_name: "Kombucha",
+            item_price: 10
+        },
+        {
+            item_name: "Grape Juice",
+            item_price: 10
+        }]
+
+}
