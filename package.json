@@ -8,6 +8,14 @@
     "start-watch": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Raskovan/dwbc-payback.git"
+  },
+  "author": "Alex Katalkin <alexey.katalkin@gmail.com> (https://github.com/Raskovan)",
+  "engines": {
+    "node": "11.11.0"
+  },
   "keywords": [],
   "author": "Alex Katalkin",
   "license": "ISC",
