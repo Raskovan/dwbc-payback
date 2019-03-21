@@ -2,14 +2,11 @@
 
 Header `{x-api-key: XXX}`
 
-GET W/ ALL CATEGORIES
+READ W/ ALL CATEGORIES
 `api/v1/city/:name`
 
-CREATE
+CREATE/READ
 `api/v1/city/`
 
 UPDATE/DELETE
 `api/v1/city/:name`
-
-GET ALL
-`api/v1/city/all`
