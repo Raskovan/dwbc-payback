@@ -4,6 +4,8 @@ https://dwbc-payback-api.herokuapp.com
 
 Header `{x-api-key: XXX}`
 
+*City has many Categories -> Category has many Items
+
 ## CITIES
 
 READ W/ ALL CATEGORIES
