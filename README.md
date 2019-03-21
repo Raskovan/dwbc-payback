@@ -1,5 +1,7 @@
 # dwbc-payback
 
+https://dwbc-payback-api.herokuapp.com
+
 Header `{x-api-key: XXX}`
 
 READ W/ ALL CATEGORIES
