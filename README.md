@@ -26,7 +26,7 @@ CREAT CATEGORY FOR CITY
 UPDATE CATEGORY FOR CITY
 `api/v1/cat/:name/:cat`
 
-*Sample output:*
+*Sample output:* `api/v1/city/:name`
 ```
 [
     {
