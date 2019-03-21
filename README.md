@@ -21,7 +21,7 @@ READ ALL
 `api/v1/cat/`
 
 CREAT CATEGORY FOR CITY
-`api/v1/cat/:name/`
+`api/v1/cat/:name`
 
 UPDATE CATEGORY FOR CITY
 `api/v1/cat/:name/:cat`
