@@ -1,5 +1,8 @@
 # dwbc-payback
 
+GET W/ ALL CATEGORIES
+`api/v1/city/:name`
+
 CREATE
 `api/v1/city/`
 
