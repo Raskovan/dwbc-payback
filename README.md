@@ -4,7 +4,7 @@ https://dwbc-payback-api.herokuapp.com
 
 Header `{x-api-key: XXX}`
 
-**CITIES**
+__**CITIES**__
 
 READ W/ ALL CATEGORIES
 `api/v1/city/:name`
@@ -15,17 +15,16 @@ CREATE/READ
 UPDATE/DELETE
 `api/v1/city/:name`
 
-**CATEGORIES**
+__**CATEGORIES**__
 
 READ ALL
 `api/v1/cat/`
 
-UPDATE CATEGORY FOR CITY
-`api/v1/cat/:name/:cat`
-
 CREAT CATEGORY FOR CITY
 `api/v1/cat/:name/`
 
+UPDATE CATEGORY FOR CITY
+`api/v1/cat/:name/:cat`
 
 *Sample output:*
 ```
