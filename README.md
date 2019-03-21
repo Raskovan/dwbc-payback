@@ -4,7 +4,7 @@ https://dwbc-payback-api.herokuapp.com
 
 Header `{x-api-key: XXX}`
 
-__**CITIES**__
+## CITIES
 
 READ W/ ALL CATEGORIES
 `api/v1/city/:name`
@@ -15,7 +15,7 @@ CREATE/READ
 UPDATE/DELETE
 `api/v1/city/:name`
 
-__**CATEGORIES**__
+## CATEGORIES
 
 READ ALL
 `api/v1/cat/`
