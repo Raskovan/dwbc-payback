@@ -1,10 +1,10 @@
 # dwbc-payback
 
 CREATE
-api/v1/city/
+`api/v1/city/`
 
 UPDATE/DELETE
-api/v1/city/:name
+`api/v1/city/:name`
 
 GET ALL
-api/v1/city/all
+`api/v1/city/all`
