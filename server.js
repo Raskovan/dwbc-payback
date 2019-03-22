@@ -11,11 +11,10 @@ nconf.argv().env('__').file({file: './config.json'})
 app.use(bodyParser.json())
 
 app.get('/_health', function (req, res) {
-    res.json('Karmapachenno');
-});
+  res.json('Karmapachenno')
+})
 
 app.use('/api/v1', require('./lib/routes'));
-
 
 // app.use((req, res, next) => {
 //     console.log(`${new Date().toString()} => ${req.originalURL}`, req.body)
@@ -33,5 +32,5 @@ app.use('/api/v1', require('./lib/routes'));
 //     res.sendFile(path.join(__dirname, '../public/500.html'))
 // })
 
-let listener = app.listen(process.env.PORT || 8080,  () => 
-console.info("Server has started on port " + listener.address().port))
+let listener = app.listen(process.env.PORT || 8080, () =>
+  console.info('Server has started on port ' + listener.address().port))

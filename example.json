@@ -51,34 +51,60 @@
 
 
 
+create city/
+api/v1/cities/ 
 
-city collection
+api/v1/cities/:id //read-update-delete
 
+create cat for city
+api/v1/cities/:city_id/cats/ //:id - update
+
+create cat for city
+api/v1/cities/:city_id/cats/:cat_id - //read-update-delete
+
+create item for cat
+api/v1/cities/:city_id/:cat_id/items/ //:id - update
+
+body
+{
+    _id:
+    city_name: ""
+}
 {
     _id: 12345,
-    name: "New York"
+    city_name: "New York",
+    categories: [
+        {
+            _id: 0987,
+            category_title: "Cafe",
+            category_price: 10,
+            type_of: "cafe",
+            items: [    //api/v1/items
+                {
+                    _id: 0987,
+                    item_name: "Dinner",
+                    item_price: 10
+                },
+                {
+                    _id: 0988,
+                    item_name: "Kombucha",
+                    item_price: 10
+                },
+                {
+                    _id: 0989,
+                    item_name: "Grape Juice",
+                    item_price: 10
+                }]
+        
+        },{},{}]
 }
 
-category collection
+/api/v1/city-names
+[{
+    city_names: "NY",
+    id:
+},{
+    city_names: "Boston",
+    id:
+}]
 
-{
-    _id: 0987,
-    city_id: 12345
-    category_title: "Cafe",
-    category_price: 10,
-    type_of: "cafe",
-    items: [
-        {
-            item_name: "Dinner",
-            item_price: 10
-        },
-        {
-            item_name: "Kombucha",
-            item_price: 10
-        },
-        {
-            item_name: "Grape Juice",
-            item_price: 10
-        }]
-
-}
