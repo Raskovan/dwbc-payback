@@ -22,6 +22,7 @@ CREATE CATEGORY FOR CITY
 UPDATE/DELETE CATEGORY FOR CITY
 `api/v1/cities/:city_id/categories/:cat_id`
 
+<<<<<<< HEAD
 ## ITEMS
 
 CREATE ITEM
@@ -29,6 +30,8 @@ CREATE ITEM
 
 DELETE ITEM
 `api/v1/cities/:city_id/categories/:cat_id/items/:item_id`
+=======
+>>>>>>> 4cd3b6d7da0a7d59164840f909985955039631af
 
 ---
 
@@ -67,6 +70,7 @@ DELETE ITEM
                 "order": 2
             }
         ],
+
         "__v": 0
     }
 ]
