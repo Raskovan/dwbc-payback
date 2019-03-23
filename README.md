@@ -22,6 +22,7 @@ CREATE CATEGORY FOR CITY
 UPDATE/DELETE CATEGORY FOR CITY
 `api/v1/cities/:city_id/categories/:cat_id`
 
+
 ---
 
 *Sample output:* `api/v1/city/:name`
@@ -48,6 +49,7 @@ UPDATE/DELETE CATEGORY FOR CITY
                 "order": 2
             }
         ],
+
         "__v": 0
     }
 ]
