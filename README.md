@@ -22,6 +22,14 @@ CREATE CATEGORY FOR CITY
 UPDATE/DELETE CATEGORY FOR CITY
 `api/v1/cities/:city_id/categories/:cat_id`
 
+## ITEMS
+
+CREATE ITEM
+`api/v1/cities/:city_id/categories/:cat_id/items/`
+
+DELETE ITEM
+`api/v1/cities/:city_id/categories/:cat_id/items/:item_id`
+
 ---
 
 *Sample output:* `api/v1/city/:name`
@@ -33,7 +41,18 @@ UPDATE/DELETE CATEGORY FOR CITY
         "categories": [
             {
                 "category_price": null,
-                "items": [],
+                "items": [
+                {
+                    "_id": "5c95a7a7d808747211eae5f6",
+                    "item_name": "Beer",
+                    "item_price": 4
+                },
+                {
+                    "_id": "5c95a7b7d808747211eae5f7",
+                    "item_name": "Wine",
+                    "item_price": 5
+                }
+            ],
                 "_id": "5c958577723d7b6846c5213e",
                 "category_name": "Bar",
                 "type_of": "bar",
