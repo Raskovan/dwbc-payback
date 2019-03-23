@@ -42,17 +42,17 @@ DELETE ITEM
             {
                 "category_price": null,
                 "items": [
-                {
-                    "_id": "5c95a7a7d808747211eae5f6",
-                    "item_name": "Beer",
-                    "item_price": 4
-                },
-                {
-                    "_id": "5c95a7b7d808747211eae5f7",
-                    "item_name": "Wine",
-                    "item_price": 5
-                }
-            ],
+                    {
+                        "_id": "5c95a7a7d808747211eae5f6",
+                        "item_name": "Beer",
+                        "item_price": 4
+                    },
+                    {
+                        "_id": "5c95a7b7d808747211eae5f7",
+                        "item_name": "Wine",
+                        "item_price": 5
+                    }
+                ],
                 "_id": "5c958577723d7b6846c5213e",
                 "category_name": "Bar",
                 "type_of": "bar",
