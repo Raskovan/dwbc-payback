@@ -8,10 +8,10 @@ Header `{x-api-key: XXX}`
 
 ## CITIES
 
-READ W/ ALL CATEGORIES
+CREATE
 `api/v1/cities/`
 
-CREATE/READ/UPDATE/DELETE
+READ/UPDATE/DELETE
 `api/v1/cities/:city_id`
 
 ## CATEGORIES
@@ -32,7 +32,7 @@ DELETE ITEM
 
 ---
 
-*Sample output:* `api/v1/city/:name`
+*Sample output:* `api/v1/city/:city_id`
 ```
 [
     {
