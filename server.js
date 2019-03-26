@@ -1,37 +1,34 @@
-let express = require('express');
-let app = express();
-let path = require('path');
+let express = require('express')
+let app = express()
+let path = require('path')
 let nconf = require('nconf')
-let bodyParser = require('body-parser');
-// let categoryRoute = require('./src/routes/category');
-// let cityRoute = require('./src/routes/city');
 
-nconf.argv().env('__').file({file: './config.json'})
+let bodyParser = require('body-parser')
+let mongoose = require('mongoose')
+
+nconf.argv().env('__').file({ file: './config.json' })
+let uristring = nconf.get('MONGODB_URI')
+
+mongoose
+  .connect(uristring, { useNewUrlParser: true })
+  .then(() => console.log('Now connected to MongoDB!'))
+  .catch(err => console.error('Something went wrong', err))
+
+mongoose.set('useCreateIndex', true)
+mongoose.set('useFindAndModify', false)
 
 app.use(bodyParser.json())
 
 app.get('/_health', function (req, res) {
-    res.json('Karmapachenno');
-});
+  res.json('Karmapachenno')
+})
 
-app.use('/api/v1', require('./lib/routes'));
+app.use('/api/v1', require('./lib/routes'))
 
+app.use((req, res, next) => {
+  console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body);
+  res.status(404).send('STOP! You are hitting the wrong endpoint. Try again!')
+})
 
-// app.use((req, res, next) => {
-//     console.log(`${new Date().toString()} => ${req.originalURL}`, req.body)
-//     next()
-// })
-// app.use(cityRoute);
-// app.use(categoryRoute);
-
-// app.use((req, res, next) => {
-//     res.status(404).send('Not Found.')
-// })
-
-// app.use((err, req, res, next) => {
-//     console.error(err.stack )
-//     res.sendFile(path.join(__dirname, '../public/500.html'))
-// })
-
-let listener = app.listen(process.env.PORT || 8080,  () => 
-console.info("Server has started on port " + listener.address().port))
+let listener = app.listen(process.env.PORT || 8080, () =>
+  console.info('Server has started on port ' + listener.address().port))

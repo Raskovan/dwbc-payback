@@ -8,58 +8,94 @@ Header `{x-api-key: XXX}`
 
 ## CITIES
 
-READ W/ ALL CATEGORIES
-`api/v1/city/:name`
+CREATE
+`api/v1/cities/`
 
-CREATE/READ
-`api/v1/city/`
-
-UPDATE/DELETE
-`api/v1/city/:name`
+READ/UPDATE/DELETE
+`api/v1/cities/:city_id`
 
 ## CATEGORIES
 
-READ ALL
-`api/v1/cat/`
-
 CREATE CATEGORY FOR CITY
-`api/v1/cat/:name`
+`api/v1/cities/:city_id/categories/`
 
 UPDATE/DELETE CATEGORY FOR CITY
-`api/v1/cat/:name/:cat`
+`api/v1/cities/:city_id/categories/:cat_id`
+
+## ITEMS
+
+CREATE ITEM
+`api/v1/cities/:city_id/categories/:cat_id/items/`
+
+DELETE ITEM
+`api/v1/cities/:city_id/categories/:cat_id/items/:item_id`
 
 ---
 
-*Sample output:* `api/v1/city/:name`
+*Sample output:* `api/v1/city/:city_id`
 ```
 [
     {
-        "_id": "5c92e81cb1a8670017e7d207",
-        "category_name": "Cafe",
-        "category_price": null,
-        "type_of": "cafe",
-        "items": [
+        "_id": "5c944dbdfb35f94d9ca2f2d7",
+        "city_name": "Boston",
+        "categories": [
             {
-                "_id": "5c92e81cb1a8670017e7d209",
-                "item_name": "Kombucha",
-                "item_price": 4
+                "category_price": null,
+                "items": [
+                    {
+                        "_id": "5c95a7a7d808747211eae5f6",
+                        "item_name": "Beer",
+                        "item_price": 4
+                    },
+                    {
+                        "_id": "5c95a7b7d808747211eae5f7",
+                        "item_name": "Wine",
+                        "item_price": 5
+                    }
+                ],
+                "_id": "5c958577723d7b6846c5213e",
+                "category_name": "Bar",
+                "type_of": "bar",
+                "order": 1
             },
             {
-                "_id": "5c92e81cb1a8670017e7d208",
-                "item_name": "Grape Juice",
-                "item_price": 5
+                "category_price": null,
+                "items": [],
+                "_id": "5c958722723d7b6846c5213f",
+                "category_name": "Dharma",
+                "type_of": "dharma",
+                "order": 2
             }
         ],
-        "city_id": "5c92e6f8b1a8670017e7d206",
+
+        "__v": 0
+    }
+]
+```
+
+## HELPER ROUTE
+
+GET CITIES
+`api/v1/cities/list`
+
+```
+[
+    {
+        "_id": "5c980bd42ec14f2b29f8a1b8",
+        "city_name": "New York",
+        "city_id": "5c980bd42ec14f2b29f8a1b7",
         "__v": 0
     },
     {
-        "_id": "5c92e882b1a8670017e7d20a",
-        "category_name": "Lecture",
-        "category_price": 10,
-        "type_of": "lecture",
-        "items": [],
-        "city_id": "5c92e6f8b1a8670017e7d206",
+        "_id": "5c980bdc2ec14f2b29f8a1ba",
+        "city_name": "Boston",
+        "city_id": "5c980bdc2ec14f2b29f8a1b9",
+        "__v": 0
+    },
+    {
+        "_id": "5c997e8e2335454521a54dd4",
+        "city_name": "NRC",
+        "city_id": "5c997e8e2335454521a54dd3",
         "__v": 0
     }
 ]
