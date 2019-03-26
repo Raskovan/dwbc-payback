@@ -2,11 +2,12 @@ let express = require('express')
 let app = express()
 let path = require('path')
 let nconf = require('nconf')
+
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
 
 nconf.argv().env('__').file({ file: './config.json' })
-let uristring = process.env.MONGODB_URI || 'mongodb://localhost:27017/dwbcpay'
+let uristring = nconf.get('MONGODB_URI')
 
 mongoose
   .connect(uristring, { useNewUrlParser: true })
