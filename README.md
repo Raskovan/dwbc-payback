@@ -2,6 +2,9 @@
 
 https://dwbc-payback-api.herokuapp.com
 
+## HEALTH CHECK
+`/_health`
+
 Header `{x-api-key: XXX}`
 
 *City has many Categories -> Category has many Items*
