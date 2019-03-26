@@ -72,3 +72,31 @@ DELETE ITEM
     }
 ]
 ```
+
+## HELPER ROUTE
+
+GET CITIES
+`api/v1/cities/list`
+
+```
+[
+    {
+        "_id": "5c980bd42ec14f2b29f8a1b8",
+        "city_name": "New York",
+        "city_id": "5c980bd42ec14f2b29f8a1b7",
+        "__v": 0
+    },
+    {
+        "_id": "5c980bdc2ec14f2b29f8a1ba",
+        "city_name": "Boston",
+        "city_id": "5c980bdc2ec14f2b29f8a1b9",
+        "__v": 0
+    },
+    {
+        "_id": "5c997e8e2335454521a54dd4",
+        "city_name": "NRC",
+        "city_id": "5c997e8e2335454521a54dd3",
+        "__v": 0
+    }
+]
+```
