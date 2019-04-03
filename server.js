@@ -19,6 +19,12 @@ mongoose.set('useFindAndModify', false)
 
 app.use(bodyParser.json())
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*')
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next()
+})
+
 app.get('/_health', function (req, res) {
   res.json('Karmapachenno')
 })
@@ -26,7 +32,7 @@ app.get('/_health', function (req, res) {
 app.use('/api/v1', require('./lib/routes'))
 
 app.use((req, res, next) => {
-  console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body);
+  console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body)
   res.status(404).send('STOP! You are hitting the wrong endpoint. Try again!')
 })
 
