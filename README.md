@@ -2,7 +2,7 @@
 
 https://dwbc-payback-api.herokuapp.com
 
-## HEALTH CHECK
+HEALTH CHECK
 `/_health`
 
 Header `{x-api-key: XXX}`
