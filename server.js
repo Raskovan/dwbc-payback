@@ -2,6 +2,7 @@ let express = require('express')
 let app = express()
 let path = require('path')
 let nconf = require('nconf')
+var cors = require("cors");
 
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
@@ -18,12 +19,7 @@ mongoose.set('useCreateIndex', true)
 mongoose.set('useFindAndModify', false)
 
 app.use(bodyParser.json())
-
-app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
-  next()
-})
+app.use(cors())
 
 app.get('/_health', function (req, res) {
   res.json('Karmapachenno')
