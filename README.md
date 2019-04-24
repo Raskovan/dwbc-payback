@@ -30,7 +30,7 @@ UPDATE/DELETE CATEGORY FOR CITY
 CREATE ITEM
 `api/v1/cities/:city_id/categories/:cat_id/items/`
 
-DELETE ITEM
+UPDATE/DELETE ITEM
 `api/v1/cities/:city_id/categories/:cat_id/items/:item_id`
 
 ---
