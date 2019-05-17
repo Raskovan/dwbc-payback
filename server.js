@@ -1,8 +1,7 @@
 let express = require('express')
 let app = express()
-let path = require('path')
 let nconf = require('nconf')
-var cors = require("cors");
+var cors = require('cors')
 
 let bodyParser = require('body-parser')
 let mongoose = require('mongoose')
@@ -12,7 +11,7 @@ let uristring = nconf.get('MONGODB_URI')
 
 mongoose
   .connect(uristring, { useNewUrlParser: true })
-  .then(() => console.log('Now connected to MongoDB!'))
+  .then(() => console.info('Now connected to MongoDB!'))
   .catch(err => console.error('Something went wrong', err))
 
 mongoose.set('useCreateIndex', true)
@@ -28,7 +27,7 @@ app.get('/_health', function (req, res) {
 app.use('/api/v1', require('./lib/routes'))
 
 app.use((req, res, next) => {
-  console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body)
+  console.info(`${new Date().toString()} => ${req.originalUrl}`, req.body)
   res.status(404).send('STOP! You are hitting the wrong endpoint. Try again!')
 })
 
