@@ -5,19 +5,19 @@ info:
   version: '0.1'
 servers:
   - url: 'https://dwbc-payback-api.herokuapp.com/'
-  
+
 # tags are used for organizing operations
 tags:
-- name: health
-  description: Open calls
-- name: cities list
-  description: Operations available with the x-api-key
-- name: cities
-  description: Operations available with the x-api-key
-- name: categories
-  description: Operations available with the x-api-key
-- name: items
-  description: Operations available with the x-api-key
+  - name: health
+    description: Open calls
+  - name: cities list
+    description: Operations available with the x-api-key
+  - name: cities
+    description: Operations available with the x-api-key
+  - name: categories
+    description: Operations available with the x-api-key
+  - name: items
+    description: Operations available with the x-api-key
 
 paths:
   /_health:
@@ -30,12 +30,12 @@ paths:
           description: Auto generated using Swagger Inspector
           content:
             application/json; charset=utf-8:
-              example: "Karmapachenno"
+              example: 'Karmapachenno'
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com/'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
   /api/v1/cities/list:
     get:
       tags:
@@ -46,7 +46,7 @@ paths:
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       responses:
         '200':
           description: List of all cities
@@ -60,7 +60,7 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
   /api/v1/cities:
     get:
       tags:
@@ -71,7 +71,7 @@ paths:
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       responses:
         '200':
           description: List of cities with categories
@@ -85,7 +85,7 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
     post:
       tags:
         - cities
@@ -95,7 +95,7 @@ paths:
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -119,7 +119,7 @@ paths:
                 $ref: '#/components/schemas/CityList'
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
   /api/v1/cities/{city_id}:
     get:
       tags:
@@ -131,13 +131,13 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
         - name: Content-Type-Options
           in: header
           schema:
@@ -160,13 +160,13 @@ paths:
                         properties:
                           category_name:
                             type: string
-                            example: "Cafe"
+                            example: 'Cafe'
                           category_price:
                             type: number
                             example: 10
                           type_of:
                             type: string
-                            example: "cafe"
+                            example: 'cafe'
                           items:
                             type: array
                             items:
@@ -174,7 +174,7 @@ paths:
                               properties:
                                 item_name:
                                   type: string
-                                  example: "Juice"
+                                  example: 'Juice'
                                 item_price:
                                   type: number
                                   example: 10
@@ -182,7 +182,7 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-    
+
     put:
       tags:
         - cities
@@ -193,13 +193,13 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -223,7 +223,7 @@ paths:
                 $ref: '#/components/schemas/City'
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com'
-        
+
     delete:
       description: Delete city
       tags:
@@ -234,13 +234,13 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       responses:
         '200':
           description: Deleted city
@@ -250,7 +250,7 @@ paths:
                 $ref: '#/components/schemas/City'
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
   /api/v1/cities/{city_id}/categories:
     post:
       description: Add a category to a city
@@ -262,13 +262,13 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"      
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -297,7 +297,7 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
   /api/v1/cities/{city_id}/categories/{category_id}:
     put:
       description: Updates Category
@@ -309,20 +309,20 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: category_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec097f358ff800175adbdc" 
+            type: string
+            example: '5dec097f358ff800175adbdc'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -347,7 +347,7 @@ paths:
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
-      - url: 'https://dwbc-payback-api.herokuapp.com' 
+      - url: 'https://dwbc-payback-api.herokuapp.com'
 
     delete:
       description: Deletes Category
@@ -359,20 +359,20 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: category_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec097f358ff800175adbdc" 
+            type: string
+            example: '5dec097f358ff800175adbdc'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       responses:
         '200':
           description: Returns City
@@ -382,7 +382,7 @@ paths:
                 $ref: '#/components/schemas/City'
       servers:
         - url: 'https://dwbc-payback-api.herokuapp.com'
-        
+
   /api/v1/cities/{city_id}/categories/{category_id}/items:
     post:
       description: Creates Item
@@ -394,20 +394,20 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: category_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec097f358ff800175adbdc" 
+            type: string
+            example: '5dec097f358ff800175adbdc'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -436,7 +436,7 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-  
+
   /api/v1/cities/{city_id}/categories/{category_id}/items/{item_id}:
     put:
       description: Auto generated using Swagger Inspector
@@ -448,27 +448,27 @@ paths:
           required: true
           description: Updates Item.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: category_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec097f358ff800175adbdc"
+            type: string
+            example: '5dec097f358ff800175adbdc'
         - name: item_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec0a52358ff800175adbdd"
+            type: string
+            example: '5dec0a52358ff800175adbdd'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       requestBody:
         content:
           application/json:
@@ -505,27 +505,27 @@ paths:
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5c99a5ec3ad97b001795d699"
+            type: string
+            example: '5c99a5ec3ad97b001795d699'
         - name: category_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec097f358ff800175adbdc"
+            type: string
+            example: '5dec097f358ff800175adbdc'
         - name: item_id
           in: path
           required: true
           description: Parameter description in CommonMark or HTML.
           schema:
-            type : string
-            example: "5dec0a52358ff800175adbdd"
+            type: string
+            example: '5dec0a52358ff800175adbdd'
         - name: x-api-key
           in: header
           schema:
             type: string
-          example: '1234'
+          example: 'XXX'
       responses:
         '200':
           description: Returns City
@@ -537,30 +537,30 @@ paths:
         - url: 'https://dwbc-payback-api.herokuapp.com'
     servers:
       - url: 'https://dwbc-payback-api.herokuapp.com'
-      
+
 components:
   schemas:
     CityList:
       type: object
       required:
-      - city_name
-      - city_id
+        - city_name
+        - city_id
       properties:
         city_name:
           type: string
-          example: "New York"
+          example: 'New York'
         city_id:
           type: string
-          example: "5c99a5ec3ad97b001795d699"
+          example: '5c99a5ec3ad97b001795d699'
     City:
       type: object
       required:
-      - city_name
-      - category_name
+        - city_name
+        - category_name
       properties:
         city_name:
           type: string
-          example: "New York"
+          example: 'New York'
         categories:
           type: array
           items:
@@ -568,13 +568,13 @@ components:
             properties:
               category_name:
                 type: string
-                example: "Cafe"
+                example: 'Cafe'
               category_price:
                 type: number
                 example: 10
               type_of:
                 type: string
-                example: "cafe"
+                example: 'cafe'
               items:
                 type: array
                 items:
@@ -582,7 +582,7 @@ components:
                   properties:
                     item_name:
                       type: string
-                      example: "Juice"
+                      example: 'Juice'
                     item_price:
                       type: number
                       example: 10
