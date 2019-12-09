@@ -1,5 +1,7 @@
 # dwbc-payback
 
+Full API documentation: https://raskovan.github.io/dwbc-payback/
+
 https://dwbc-payback-api.herokuapp.com
 
 HEALTH CHECK
