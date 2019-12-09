@@ -1,0 +1,588 @@
+openapi: 3.0.1
+info:
+  title: PeiBack API
+  description: API for DWBC paystations
+  version: '0.1'
+servers:
+  - url: 'https://dwbc-payback-api.herokuapp.com/'
+  
+# tags are used for organizing operations
+tags:
+- name: health
+  description: Open calls
+- name: cities list
+  description: Operations available with the x-api-key
+- name: cities
+  description: Operations available with the x-api-key
+- name: categories
+  description: Operations available with the x-api-key
+- name: items
+  description: Operations available with the x-api-key
+
+paths:
+  /_health:
+    get:
+      tags:
+        - health
+      description: Health Check
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              example: "Karmapachenno"
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com/'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+  /api/v1/cities/list:
+    get:
+      tags:
+        - cities list
+      description: List of all cities
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      responses:
+        '200':
+          description: List of all cities
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CityList'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+  /api/v1/cities:
+    get:
+      tags:
+        - cities
+      description: Get list of all cities with all categories
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      responses:
+        '200':
+          description: List of cities with categories
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+    post:
+      tags:
+        - cities
+      description: Create a city
+      parameters:
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city_name:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                    "city_name": "Modela"
+                  }
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/CityList'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+  /api/v1/cities/{city_id}:
+    get:
+      tags:
+        - cities
+      description: Array of categories for a city
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+        - name: Content-Type-Options
+          in: header
+          schema:
+            type: string
+          example: application/json
+      responses:
+        '200':
+          description: Array of categories
+          content:
+            application/json; charset=utf-8:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    categories:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          category_name:
+                            type: string
+                            example: "Cafe"
+                          category_price:
+                            type: number
+                            example: 10
+                          type_of:
+                            type: string
+                            example: "cafe"
+                          items:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                item_name:
+                                  type: string
+                                  example: "Juice"
+                                item_price:
+                                  type: number
+                                  example: 10
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+    
+    put:
+      tags:
+        - cities
+      description: Update city
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                city_name:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "city_name": "Modela Update"
+                  }
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+        
+    delete:
+      description: Delete city
+      tags:
+        - cities
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      responses:
+        '200':
+          description: Deleted city
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+  /api/v1/cities/{city_id}/categories:
+    post:
+      description: Add a category to a city
+      tags:
+        - categories
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"      
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                category_price:
+                  type: integer
+            examples:
+              '0':
+                value: |-
+                  {
+                      "category_price": 10,
+                      "category_name": "Lecture"
+                  }
+      responses:
+        '200':
+          description: City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+  /api/v1/cities/{city_id}/categories/{category_id}:
+    put:
+      description: Updates Category
+      tags:
+        - categories
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: category_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec097f358ff800175adbdc" 
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_price:
+                  type: integer
+            examples:
+              '0':
+                value: |-
+                  {
+                      "category_price": 20
+                  }
+      responses:
+        '200':
+          description: Returns City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com' 
+
+    delete:
+      description: Deletes Category
+      tags:
+        - categories
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: category_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec097f358ff800175adbdc" 
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      responses:
+        '200':
+          description: Returns City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+        
+  /api/v1/cities/{city_id}/categories/{category_id}/items:
+    post:
+      description: Creates Item
+      tags:
+        - items
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: category_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec097f358ff800175adbdc" 
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_price:
+                  type: integer
+                item_name:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "item_name": "TTL",
+                      "item_price": 20
+                  }
+      responses:
+        '200':
+          description: Returns City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+  
+  /api/v1/cities/{city_id}/categories/{category_id}/items/{item_id}:
+    put:
+      description: Auto generated using Swagger Inspector
+      tags:
+        - items
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Updates Item.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: category_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec097f358ff800175adbdc"
+        - name: item_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec0a52358ff800175adbdd"
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_price:
+                  type: integer
+                item_name:
+                  type: string
+            examples:
+              '0':
+                value: |-
+                  {
+                      "item_name": "TTLL",
+                      "item_price": 30
+                  }
+      responses:
+        '200':
+          description: Returns City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    delete:
+      description: Delete Item
+      tags:
+        - items
+      parameters:
+        - name: city_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5c99a5ec3ad97b001795d699"
+        - name: category_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec097f358ff800175adbdc"
+        - name: item_id
+          in: path
+          required: true
+          description: Parameter description in CommonMark or HTML.
+          schema:
+            type : string
+            example: "5dec0a52358ff800175adbdd"
+        - name: x-api-key
+          in: header
+          schema:
+            type: string
+          example: '1234'
+      responses:
+        '200':
+          description: Returns City
+          content:
+            application/json; charset=utf-8:
+              schema:
+                $ref: '#/components/schemas/City'
+      servers:
+        - url: 'https://dwbc-payback-api.herokuapp.com'
+    servers:
+      - url: 'https://dwbc-payback-api.herokuapp.com'
+      
+components:
+  schemas:
+    CityList:
+      type: object
+      required:
+      - city_name
+      - city_id
+      properties:
+        city_name:
+          type: string
+          example: "New York"
+        city_id:
+          type: string
+          example: "5c99a5ec3ad97b001795d699"
+    City:
+      type: object
+      required:
+      - city_name
+      - category_name
+      properties:
+        city_name:
+          type: string
+          example: "New York"
+        categories:
+          type: array
+          items:
+            type: object
+            properties:
+              category_name:
+                type: string
+                example: "Cafe"
+              category_price:
+                type: number
+                example: 10
+              type_of:
+                type: string
+                example: "cafe"
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    item_name:
+                      type: string
+                      example: "Juice"
+                    item_price:
+                      type: number
+                      example: 10
