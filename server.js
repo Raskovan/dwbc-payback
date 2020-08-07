@@ -10,7 +10,7 @@ nconf.argv().env('__').file({ file: './config.json' })
 let uristring = nconf.get('MONGODB_URI')
 
 mongoose
-  .connect(uristring, { useNewUrlParser: true })
+  .connect(uristring, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.info('Now connected to MongoDB!'))
   .catch(err => console.error('Something went wrong', err))
 
@@ -32,4 +32,5 @@ app.use((req, res, next) => {
 })
 
 let listener = app.listen(process.env.PORT || 8080, () =>
-  console.info('Server has started on port ' + listener.address().port))
+  console.info('Server has started on port ' + listener.address().port),
+)
