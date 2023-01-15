@@ -2,7 +2,9 @@
 
 Full API documentation: https://raskovan.github.io/dwbc-payback/
 
-https://dwbc-payback-api.herokuapp.com
+~https://dwbc-payback-api.herokuapp.com~
+
+New url: https://peiback-api.onrender.com/
 
 HEALTH CHECK
 `/_health`
